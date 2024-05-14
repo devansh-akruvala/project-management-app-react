@@ -68,6 +68,7 @@ function App() {
     
       return {
         ...prevState,
+        selectedProjectId:undefined,
         projects: [...prevState.projects, newProject],
       };
     });
@@ -105,7 +106,7 @@ function App() {
       onDelete={handleDeleteProject}
       onAddTask={handleAddtask}
       onDeleteTask={handleDeletetask}
-      tasks={projectState.tasks}
+      tasks={projectState.tasks.filter((task)=>task.projectId === projectState.selectedProjectId)}
     />
   );
 
